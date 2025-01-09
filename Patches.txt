@@ -1,0 +1,16 @@
+def solution(S):
+    n = len(S)
+    patches = 0
+    i = 0
+    while i < n:
+        if S[i] == 'X':  # a pothole
+            patches += 1  #  patch applying
+            i += 3       # skiping the next two because its covererd
+        else:
+            i += 1       # move to next
+    return patches
+# requested output
+print(solution(".X..X")) # 2
+print(solution("X.XXXXX.X.")) #3
+print(solution("XX.XXX..")) #2
+print(solution("XXXX")) # 2
