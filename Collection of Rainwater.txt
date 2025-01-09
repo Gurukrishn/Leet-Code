@@ -1,0 +1,23 @@
+def solution(S):
+    n = len(S)
+    tanks = 0
+    i = 0
+
+    while i < n:
+        if S[i] == 'H':  # House
+            if i < n - 1 and S[i + 1] == '-': # Checking a place to put tank adjacent to house
+                tanks += 1 # Placing the tank
+                i += 3  # Skipping covered house, tank, and place too
+            elif i > 0 and S[i - 1] == '-': # placing tank for previous house if needed or required
+                tanks += 1
+                i += 1  # going to next house
+            else:
+                return -1  # if there is no place to put tank
+        else:
+            i += 1  # going to the next place if not a house
+    return tanks
+# requested outcomes
+print(solution("-H-HH--")) #2
+print(solution("H")) #-1
+print(solution("HH-HH")) #-1
+print(solution("-H-H-H-H-H")) #3
