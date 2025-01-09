@@ -1,0 +1,15 @@
+def solution(S):
+    down_count = S.count('v') # Arrows directions giving
+    up_count = S.count('^')
+    right_count = S.count('>')
+    left_count = S.count('<')
+    total_arrows = len(S) # Arrows in total
+    rotate_to_down = total_arrows - down_count # caluclation of rotations
+    rotate_to_up = total_arrows - up_count
+    rotate_to_right = total_arrows - right_count
+    rotate_to_left = total_arrows - left_count
+    return min(rotate_to_down, rotate_to_up, rotate_to_right, rotate_to_left) # minimum rotations identyfying
+# requested points(output)
+print(solution("^vv<v")) #2
+print(solution("v>>>vv")) #3
+print(solution("<<<")) #0
